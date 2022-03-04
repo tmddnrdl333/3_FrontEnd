@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+
+        .wrap {
+            border: 3px solid green;
+            /* relative로 만든 이유는... */
+            /* absolute 자식의 기준점이 되어주기 위해 */
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        #cont1 {
+            background-color: pink;
+            position: absolute;
+            left: 100px;
+            top: 550px;
+            z-index: 2;
+        }
+
+        #cont2 {
+            background-color: dodgerblue;
+            position: relative;
+            left: 20px;
+            top: 20px;
+            z-index: 1;
+        }
+
+        #cont3 {
+            background-color: blueviolet;
+        }
+
+        .banner {
+            width: 150px;
+            height: 300px;
+            background-color: skyblue;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div style="width: 300px; padding: 10px; border: 5px solid red; box-sizing: border-box;">포지션</div>
+    <div class="wrap">
+        <h1>내용1</h1>
+        <div>내용2</div>
+        <div id="cont1" class="box">1.Absolute</div>
+        <div id="cont2" class="box">2.Relative</div>
+        <div id="cont3" class="box">3.Static</div>
+        <div class="banner">4.Fixed</div>
+    </div>
+</body>
+</html>

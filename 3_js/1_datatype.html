@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // data type :
+        //  primitive : 하나의 데이터를 표현, boolean, number, string, undefined
+        //  reference : 여러 개의 데이터가 모여진 객체(구조체)를 표현, object
+        //  function : first-class function (일급객체)
+        //             함수를 변수에 저장가능, 함수를 또다른 함수의 매개변수로 전달, 함수를 리턴값으로 사용가능
+
+        // 변수 선언
+        // ES5 : var 변수명
+        // ES6 : let 변수명, const 상수명
+        
+        var strVar = "hello";
+        var numVar = 10;
+        var boolVar = true;
+        var undVar;
+
+        var objVar = { name:'김재환', age:27 };
+        var funcVar = function(){
+            console.log("hi...");
+        }
+
+        console.log(strVar+","+typeof strVar);
+        console.log(`${numVar},${typeof numVar}`);
+        console.log(`${boolVar},${typeof boolVar}`);
+        console.log(`${undVar},${typeof undVar}`);
+        console.log(`${objVar},${typeof objVar}`);
+        console.log(`${funcVar},${typeof funcVar}`);
+
+        strVar = 3.14;
+
+        console.log(strVar+","+typeof strVar);
+
+        console.log(`${objVar.name},${objVar.age}`);
+        funcVar();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

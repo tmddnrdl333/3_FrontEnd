@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let person = {
+            name : '김재환',
+            age : 27,
+            increaseAge : function() {
+                this.age++;
+            }
+        };
+        console.log(person.name);
+        console.log(person.age);
+        person.increaseAge();
+        console.log(person.age);
+
+        // 동적 속성 추가
+        person.phone = "010-1111-2222";
+        console.log(person.phone);
+
+        // 동적으로 삭제도 됨
+        delete person.phone;
+        console.log(person.phone);
+
+        let person2 = {
+            name : '김재환',
+            age : 27,
+            increaseAge : function() {
+                this.age++;
+            }
+        };
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

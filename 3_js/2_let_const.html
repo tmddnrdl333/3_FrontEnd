@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var a = 10;
+        // var test = function(){
+        // 
+        //     console.log(a);
+        //     for(var i=0;i<5;i++){
+        //         console.log(i);
+        //     }
+        //     console.log(`outside i : ${i}`);
+        // };
+
+        // var a = "hi";
+        // test();
+        // console.log(a);
+
+        // (1) var은 block scope를 따르는 게 아니라...
+        // 함수 밖과 함수 안만 구분하기 때문에 outside도 된거다.
+        // 하지만 let은 정확하게 해당하는 block만 적용된다.
+
+        // 원래는 중복선언을 해도 오류로 인식 안하고 덮어쓰면서 실행이 되는데...
+        // (2) 그래서 let을 쓰면 또다시 같은 이름으로 let할 수 없게 함.
+        // (3) const는 let을 하지 않더라도 값을 임의로 변경할 수 없도록 함.
+        let a = 10;
+        const test = function(){
+
+            console.log(a);
+            for(let i=0;i<5;i++){
+                console.log(i);
+            }
+            // console.log(`outside i : ${i}`); // (1)
+        };
+
+        // let a = "hi"; // (2)
+        // test =1; // (3)
+        test();
+        console.log(a);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
