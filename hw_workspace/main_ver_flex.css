@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+  background-color: blanchedalmond;
+}
+
+/* header start */
+
+#header {
+  height: 70px;
+  box-shadow: 0px 0px 10px black;
+  background-color: navajowhite;
+}
+
+#nav {
+  position: relative;
+  margin: auto;
+  max-width: 1200px;
+  width: calc(100%-120px);
+  height: 70px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0px 20px;
+  line-height: 70px;
+  height: 70px;
+}
+
+.notice {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px 10px;
+  line-height: 70px;
+  height: 70px;
+}
+
+#menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#menu > div {
+  float: left;
+  margin: 5px 10px;
+  font-size: 15px;
+}
+
+.menu-item:hover {
+  font-weight: bold;
+}
+/* header end */
+
+/* 중앙 start */
+#content {
+  margin: 10px;
+  max-width: 1200px;
+}
+
+/* left */
+#content-left {
+  background-color: blanchedalmond;
+  width: 25%;
+  float: left;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#content-left > * {
+  padding: 10px;
+  background-color: navajowhite;
+}
+
+#profile {
+  margin: 10px;
+  align-self: center;
+}
+
+#store {
+  margin: 10px;
+}
+
+#survey {
+  margin: 20px 10px;
+}
+
+/* main */
+#content-main {
+  background-color: antiquewhite;
+  margin: 2px;
+  width: 74%;
+  float: right;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#programming {
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+}
+#programming > ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#programming > ul > li {
+  width: 200px;
+  margin: 10px;
+}
+
+#essay {
+  text-align: center;
+}
+#essay >ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+#essay > ul > li {
+  width: 200px;
+  margin: 10px;
+}
+
+#article {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+#article-best,
+#article-new {
+  margin: 10px;
+}
+#article-best > h3,
+table {
+  width: 400px;
+}
+#article-new > h3,
+table {
+  width: 400px;
+}
+
+/* 중앙 end */
+
+/* footer start */
+
+#footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  bottom: 0px;
+  background-color: navajowhite;
+  width: 100%;
+  border: 2px solid antiquewhite;
+  font-weight: bold;
+}
+
+.footer-menu > li {
+  margin: 0px 5px;
+  float: left;
+}
+
+/* footer end */
