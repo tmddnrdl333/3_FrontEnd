@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function myFunc(value1, value2) {
+        console.log(value1, value2);
+      }
+
+      myFunc();
+      myFunc(1);
+      myFunc(1, 2);
+      myFunc(1, 2, 3);
+
+      function sumAll() {
+        // arguments 는 선언하지 않아도 생김 (모든 인자를 받는 배열)
+        let res = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          res += arguments[i];
+        }
+        return res;
+      }
+      console.clear();
+      console.log(sumAll());
+      console.log(sumAll(1));
+      console.log(sumAll(1, 2));
+      console.log(sumAll(1, 2, 3));
+
+      function big(value1, value2) {
+        return value1 > value2 ? value1 : value2;
+      }
+      function big(value1, value2) {
+        return value1 < value2 ? value1 : value2;
+      }
+
+      function process(value1, value2) {
+        return big(value1, value2);
+      }
+
+      console.log(big(10, 20));
+
+      // 고차함수
+      // 이와 같이 매개변수로 함수를 넘겨줘서 콜백해야 하는 상황이 많이 발생할 것이다.
+      function display(viewHandler) {
+        let msg = 'hello';
+        viewHandler(msg);
+      }
+      display(function (msg) {
+        console.log(msg);
+      });
+      display(myDisplay);
+
+      function myDisplay(msg) {
+        window.alert(msg);
+      }
+      
+    </script>
+  </head>
+  <body></body>
+</html>

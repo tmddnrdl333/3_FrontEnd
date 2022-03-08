@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var x = 10;
+
+        function myFunc() {
+            var x = 20;
+            for(var i=1;i<=5;++i){
+                console.log("hi");
+            }
+            console.log(i);
+            myFunc2();
+        }
+        function myFunc2() {
+            console.log(x);
+        }
+
+        myFunc();
+
+        // 내 scope를 찾고 그게 없으면 그 상위 scope에서 찾고 타고올라감
+
+    </script>
+</head>
+<body>
+</body>
+</html>
