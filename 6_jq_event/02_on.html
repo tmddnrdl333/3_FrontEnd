@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="js/jquery-1.9.1.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+	$(function() {
+		$("#addButton").on("click",function(){  	
+			$("header").append("<h1>추가 제목</h1>");
+			//$("body").append("<h1>추가 제목</h1>"); // on적용안되는거하기
+
+		});
+/*  		$("h1").on("click",function(){
+			alert("hello");
+		}); */  // 이 코드가 실행될 시점에 존재하는 h1에만 적용
+  		$("header").on("click","h1",function(){
+			alert("hello");
+		});  // header태그의 후손이 되는 현재,미래 h1에 모두 적용
+
+		// header 밑의 후손인 h1을 다른 조상으로 옮기면 이벤트 적용 안됨.
+		$("#moveBtn").click(function(){
+			$("header h1:last").appendTo("div");
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="addButton">동적으로 제목 추가</button>
+	<button id="moveBtn">동적으로 제목 이동</button>
+	<header>
+		<h1>안녕</h1>
+	</header>
+	<div>
+	</div>
+</body>
+</html>

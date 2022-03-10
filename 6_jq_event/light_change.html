@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        // $('#lights>img').click(changeOnOff);
+        $('#lights>img').on('click', changeOnOff);
+      });
+
+      function changeOnOff() {
+        let srcValue = $(this).attr('src');
+        if (srcValue.indexOf('on') != -1) {
+          // 켜있는 상태
+          $(this).attr('src', './img/pic_bulboff.gif');
+        } else {
+          $(this).attr('src', `./img/pic_bulbon_${$(this).attr('data-color')}.gif`);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="lights">
+      <img src="./img/pic_bulbon_yellow.gif" data-color="yellow" />
+      <img src="./img/pic_bulbon_blue.gif" data-color="blue" />
+      <img src="./img/pic_bulbon_green.gif" data-color="green" />
+      <img src="./img/pic_bulbon_red.gif" data-color="red" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <style>
+      body {
+        font-size: 9pt;
+        font-family: '굴림';
+      }
+      div,
+      p {
+        border: 1px #eeeeee solid;
+        margin: 10px;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function copyNode() {
+        $('#content').clone().attr('id', 'newContent').appendTo('#sample_page');
+      }
+
+      function moveNode() {
+        $('#header').css('border', '4px solid #ff0000').appendTo('#content');
+      }
+
+      function removeNode() {
+        $('#content').remove();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="sample_page" class="page">
+      샘플 페이지(div, id=sample_page, class=page)
+      <div id="header">헤더 영역(div, id=header)</div>
+      <div id="content" class="sample_content">
+        컨텐츠 영역(div, id=content, class=sample_content)
+        <div>
+          JavaScript란?(div)
+          <p id="data_1">1. 자바스크립트 Core(p, id=data_1)</p>
+          <p id="data_2">2. 자바스크립트 BOM(p, id=data_2)</p>
+          <p id="data_3">3. 자바스크립트 DOM(p, id=data_3)</p>
+          을 배운다는것
+        </div>
+        <div class="content_data">
+          자바스크립트에서 배울 내용(div, class=content_data)
+          <p>1. 자바스크립트 DOM(p)</p>
+          <p>2. 자바스크립트 Ajax(p)</p>
+        </div>
+        <div class="content_data">
+          jQuery에서 배울 내용(div, class=content_data)
+          <p>1. jQuery DOM(p)</p>
+          <p>2. jQuery Ajax(p)</p>
+        </div>
+      </div>
+      <div id="footer">푸터 영역(div, id=footer)</div>
+    </div>
+    <input type="button" value="노드  복사" onclick="copyNode()" />
+    <input type="button" value="header 노드  이동" onclick="moveNode()" />
+    <input type="button" value="content 엘리먼트 노드 삭제" onclick="removeNode()" />
+  </body>
+</html>
