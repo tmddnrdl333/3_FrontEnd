@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Break Neck Pizza Delivery</title>
+    <link rel="stylesheet" type="text/css" href="breakneck.css" media="screen" />
+
+    <!--   <script  /> 이런식으로는 불가능 -->
+    <script src="./ajax-xhr.js"></script>
+    <script type="text/javascript">
+      let req;
+      function getCustomerInfo() {
+        let phone = this.value;
+        req = createRequest();
+        req.onreadystatechange = updatePage;
+        req.open('post', `http://118.36.53.65:8080/myapp/customer.do`, true);
+        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        req.send(`phone=${phone}`); // post방식이니까 send로 전송
+        console.log('send request...');
+      }
+
+      // 1. JSON format
+      function updatePage() {
+        // 4 : XMLHttpRequest.DONE
+        if (req.readyState != 4) return;
+        if (req.status == 200) {
+          let customer = JSON.parse(req.responseText);
+          document.getElementById('name').value = customer.name;
+          document.getElementById('address').value = customer.address;
+        } else if (req.status == 404) {
+          console.log('고객정보가 없습니다.');
+        } else {
+          console.log('데이터 조회에 실패했습니다.');
+        }
+      }
+
+      // 2. xml format
+      function updatePage2(xmlDoc) {
+        // 4 : XMLHttpRequest.DONE
+        if (req.readyState != 4) return;
+        if (req.status == 200) {
+          console.log('UPDATE PAGE');
+          let xmlDoc = req.responseXML;
+          document.getElementById('name').value =
+            xmlDoc.getElementsByTagName('name')[0].firstChild.nodeValue;
+          document.getElementById('address').value =
+            xmlDoc.getElementsByTagName('address')[0].textContent;
+        } else if (req.status == 404) {
+          console.log('고객정보가 없습니다.');
+        } else {
+          console.log('데이터 조회에 실패했습니다.');
+        }
+      }
+
+      window.onload = function () {
+        // 호출하는게아니라 기억하라고하는거니까 괄호 붙이지 않는다.
+        document.getElementById('phone').onchange = getCustomerInfo;
+      };
+    </script>
+  </head>
+
+  <body>
+    <p><img src="breakneck-logo.gif" alt="Break Neck Pizza" /></p>
+    <form method="POST" action="placeOrder.jsp">
+      <p>
+        Enter your phone number:
+        <input type="text" size="14" name="phone" id="phone" />
+      </p>
+      <p>Type your order in here:</p>
+      <p><textarea name="order" id="order" rows="6" cols="50"></textarea></p>
+      <p>Your order will be delivered to:</p>
+      <p>Name : <input type="text" size="14" name="name" id="name" /></p>
+      <p>Address : <textarea name="address" id="address" rows="4" cols="50"></textarea></p>
+      <p><input type="submit" id="submit" value="Order Pizza" /></p>
+    </form>
+  </body>
+</html>

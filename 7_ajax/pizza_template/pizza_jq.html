@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Break Neck Pizza Delivery</title>
+    <link rel="stylesheet" type="text/css" href="breakneck.css" media="screen" />
+
+    <!--   <script  /> 이런식으로는 불가능 -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      let req;
+      function getCustomerInfo() {
+        console.log('g cstm if');
+        $.ajax({
+          url: 'http://118.36.53.65:8080/myapp/customer.do',
+          method: 'post',
+          data: {
+            phone: $(this).val(),
+            type: 'xml',
+          },
+          success: updatePage2,
+          statusCode: {
+            404: function () {
+              console.log('고객정보가 없습니다.');
+            },
+          },
+          error: function () {
+            console.log('데이터 조회에 실패했습니다.');
+          },
+          dataType: 'xml', // 응답 데이터 형식, 생략가능 : 추측후 처리
+        });
+
+        console.log('send request...');
+      }
+
+      // 1. JSON format
+      function updatePage(customer) {
+        document.getElementById('name').value = customer.name;
+        document.getElementById('address').value = customer.address;
+      }
+
+      // 2. xml format
+      function updatePage2(xmlDoc) {
+        console.log('UPDATE PAGE');
+        $('#name').val($('name', xmlDoc).text());
+        $('#address').val($(xmlDoc).find('address').text());
+      }
+
+      $(function () {
+        $('#phone').change(getCustomerInfo);
+      });
+    </script>
+  </head>
+
+  <body style="background-color: pink">
+    <p><img src="breakneck-logo.gif" alt="Break Neck Pizza" /></p>
+    <form method="POST" action="placeOrder.jsp">
+      <p>
+        Enter your phone number:
+        <input type="text" size="14" name="phone" id="phone" />
+      </p>
+      <p>Type your order in here:</p>
+      <p><textarea name="order" id="order" rows="6" cols="50"></textarea></p>
+      <p>Your order will be delivered to:</p>
+      <p>Name : <input type="text" size="14" name="name" id="name" /></p>
+      <p>Address : <textarea name="address" id="address" rows="4" cols="50"></textarea></p>
+      <p><input type="submit" id="submit" value="Order Pizza" /></p>
+    </form>
+  </body>
+</html>
