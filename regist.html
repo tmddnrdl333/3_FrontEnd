@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSAFY 도서 관리</title>
+    <style>
+        div {
+            margin: 2px;
+        }
+        .inpDesc {
+            display: inline-block;
+            width: 70px;
+        }
+        #regist {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SSAFY 도서 관리</h1>
+    <form action="">
+        <fieldset id="regist">
+            <legend>도서 등록</legend>
+            <div>
+                <div class="inpDesc">도서번호</div>
+                <input type="text" name="isbn" />
+            </div>
+            <div>
+                <div class="inpDesc">도서명</div>
+                <input type="text" name="title" />
+            </div>
+            <div>
+                <div class="inpDesc">저자</div>
+                <input type="text" name="author" />
+            </div>
+            <div>
+                <div class="inpDesc">가격</div>
+                <input type="text" name="price" />
+            </div>
+            <div>
+                <div>설명</div>
+                <textarea name="desc" id="" cols="35" rows="2"></textarea>
+            </div>
+            <button type="submit" href="/BookRegistServlet/bookregist.do">등록</button>
+            <button type="reset">취소</button>
+        </fieldset>
+    </form>
+</body>
+</html>
